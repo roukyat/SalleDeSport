@@ -1,0 +1,542 @@
+/* ============================= */
+/*      RESET & BASE GLOBALE       */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f8;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* ============================= */
+/*          MENU (NAVBAR)         */
+/* ============================= */
+
+header {
+    background: #0d1b2a;
+    padding: 15px 5%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav .logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d4a373;
+}
+
+
+/* ============================= */
+/*           GALERIE               */
+/* ============================= */
+
+.gallery{
+    display: flex;              /* les images sont en ligne */
+    gap: 10px;                   /* espace entre les images */
+    overflow-x: auto;            /* permet de défiler horizontalement */
+    padding: 10px;
+    scroll-behavior: smooth;      /* défilement fluide */
+}
+
+.gallery img{
+    width: 280px;                 /* taille des images */
+    height: 180px;
+    object-fit: cover;            /* image bien cadrée */
+    border-radius: 10px;
+    flex-shrink: 0;               /* empêche l’image de se rétrécir */
+    transition: 0.3s;
+}
+
+.gallery img:hover{
+    transform: scale(1.05);       /* petit effet au survol */
+}
+
+/* ============================= */
+/*         LIGHTBOX (ZOOM)         */
+/* ============================= */
+
+.lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;               /* caché par défaut */
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox img{
+    width: 80%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+.lightbox:target{
+    display: flex;               /* affiche la lightbox quand on clique */
+}
+
+.close{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+/* ============================= */
+/*           HERO SECTION         */
+/* ============================= */
+
+.hero {
+    background: linear-gradient(rgba(10,20,40,0.8), rgba(10,20,40,0.8)),
+    url("https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=60");
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 50px;
+    animation: slideDown 1s ease-out;
+}
+
+.hero p {
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: #1b263b;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: #d4a373;
+}
+
+/* ============================= */
+/*        SECTIONS GLOBALES       */
+/* ============================= */
+
+section {
+    padding: 50px 5%;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ============================= */
+/*           GRILLE (GRID)        */
+/* ============================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* ============================= */
+/*            CARTES              */
+/* ============================= */
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* Images dans les cartes */
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ============================= */
+/*      SECTION POURQUOI NOUS      */
+/* ============================= */
+
+#why .card {
+    background: #1b263b;
+    color: white;
+}
+
+#why h3 {
+    color: #d4a373;
+}
+
+/* ============================= */
+/*    TRANSFORMATION AVANT/APRÈS   */
+/* ============================= */
+
+.trans-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.trans-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.trans-images img {
+    width: 45%;
+    border-radius: 10px;
+}
+
+
+#salles .card img{
+    width: 100%;
+    height: 200px;      /* même hauteur pour toutes */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ============================= */
+/*           BOXE SECTION          */
+/* ============================= */
+
+#boxe .card {
+    background: #1b263b;
+    color: white;
+}
+
+#boxe h3 {
+    color: #d4a373;
+}
+
+/* ============================= */
+/*           COACHS                */
+/* ============================= */
+
+.coach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.coach-card {
+    text-align: center;
+}
+
+.coach-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.coach-info {
+    padding: 15px;
+}
+
+/* ============================= */
+/*        ABONNEMENTS               */
+/* ============================= */
+
+#abonnements .abonnement {
+    background: #1b263b;
+    color: white;
+}
+
+.abonnement .prix {
+    font-size: 22px;
+    color: #d4a373;
+}
+
+
+/* ============================= */
+/*      SEANCES A L’UNITE           */
+/* ============================= */
+
+#seances .card{
+    background:white;
+    text-align:center;
+}
+
+#seances .prix{
+    font-size:22px;
+    color:#d4a373;
+    font-weight:bold;
+}
+
+#seances button{
+    margin-top:10px;
+}
+
+/* ============================= */
+/*     FORMULAIRE RESERVATION      */
+/* ============================= */
+
+.lightbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox:target{
+    display: flex;
+}
+
+.form-box{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-box form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-box input,
+.form-box select{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.close{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+/* ============================= */
+/*       PLANNING SEANCES           */
+/* ============================= */
+
+#planning .card {
+    background: white;
+}
+
+/* ============================= */
+/*          BOUTIQUE                */
+/* ============================= */
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.category {
+    background: #1b263b;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+/* ============================= */
+/*        FORMULAIRE INSCRIPTION    */
+/* ============================= */
+
+.form-vertical {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-vertical input,
+.form-vertical select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-vertical button {
+    padding: 12px;
+    background: #1b263b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-vertical button:hover {
+    background: #d4a373;
+}
+
+.card-payment{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* ============================= */
+/*         BOUTON ANIMÉ             */
+/* ============================= */
+
+.btn-animated {
+    padding: 12px;
+    background: #1b263b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-animated:hover {
+    background: #d4a373;
+    transform: scale(1.05);
+}
+
+/* ============================= */
+/*           FOOTER                 */
+/* ============================= */
+
+footer {
+    background: #0d1b2a;
+    color: white;
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.contact-form textarea {
+    height: 100px;
+}
+
+.contact-form button {
+    padding: 10px;
+    background: #d4a373;
+    border: none;
+    cursor: pointer;
+}
+
+/* ============================= */
+/*         ANIMATIONS              */
+/* ============================= */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* ============================= */
+/*      RESPONSIVE MOBILE          */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+}
